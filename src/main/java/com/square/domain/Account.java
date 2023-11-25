@@ -1,10 +1,9 @@
 package com.square.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Getter @Setter @EqualsAndHashCode(of = "id")
@@ -22,6 +21,31 @@ public class Account {
 
     private String password;
 
-    private
+    private boolean emailVerified;
+
+    private String emailCheckToken;
+
+    private LocalDateTime joinedAt;
+
+    private String bio;
+
+    private String url;
+
+    private String occupation;
+
+    private String location;
+
+    @Lob @Basic(fetch = FetchType.EAGER)
+    private String profileImage;
+
+    private boolean officeCreateByEmail;
+    private boolean officeCreateByWeb;
+
+    private boolean officeEnrollmentResultByEmail;
+    private boolean officeEnrollmentResultByWeb;
+
+    private boolean officeUpdatedByEmail;
+    private boolean officeUpdatedByWeb;
+
 
 }
