@@ -9,9 +9,11 @@
             max-width: 100%;
         }
     </style>
+</head>
+<body class="bg-light">
     <nav th:fragment="main-nav" class="navbar navbar-expand-sm navbar-dark bg-dark">
         <a class="navbar-brand" href="/" th:href="@{/}">
-            <img src="/images/logo.jpg" width="90" height="50">
+            <img src="/images/logo.jpg" width="60" height="30">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -36,8 +38,7 @@
             </ul>
         </div>
     </nav>
-</head>
-<body class="bg-light">
+
 <div class="container">
     <div class="py-5 text-center">
         <h2>Sign Up</h2>
@@ -47,7 +48,7 @@
             <div class="form-group">
                 <label for="nickname">NickName</label>
                 <input id="nickname" type="text" th:field="*{nickname}" class="form-control"
-                       placeholder="whiteship" aria-describedby="nicknameHelp" required minlength="3" maxlength="20">
+                       placeholder="whiteship" aria-describedby="nicknameHelp" required minlength="8" maxlength="20">
                 <small id="nicknameHelp" class="form-text text-muted">
                     It must be 3 to 20 characters and contain at least one number and one letter and can’t begin or end with a space.
                 </small>
