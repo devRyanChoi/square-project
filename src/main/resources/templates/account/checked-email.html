@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Square</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .container {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <nav th:fragment="main-nav" class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <a class="navbar-brand" href="/" th:href="@{/}">
+            <img src="/images/logo.jpg" width="60" height="30">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <form th:action="@{/search/study}" class="form-inline" method="get">
+                        <input class="form-control mr-sm-2" name="keyword" type="search" placeholder="Searching Office" aria-label="Search" />
+                    </form>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav justify-content-end">
+                <li class="btn btn-outline-secondary">
+                    <a class="nav-link" th:href="@{/login}">Log in</a>
+                </li>
+                <li class="btn btn-outline-secondary">
+                    <a class="nav-link" th:href="@{/sign-up}">Sign up</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="py-5 text-center" th:if="${error}">
+        <p class="lead"> SQUARE Email confirm</p>
+        <div class="alert alert-danger" role="alert">
+            "Your email is not correct"
+        </div>
+    </div>
+    <div class="py-5 text-center" th:if="${error == null}">
+        <h2>Email is confirmed <span th:text="${numberOfUser}"></span>th Member,
+            Congratulate Sir or Mam <span th:text="${nickname}">Ryan</span>!!
+        </h2>
+    </div>
+</body>
+</html>
