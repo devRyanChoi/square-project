@@ -21,9 +21,11 @@ public class SecurityConfig {
         MvcRequestMatcher.Builder mvcMatcherBuilder = new MvcRequestMatcher.Builder(introspector);
         http.authorizeHttpRequests((requests) -> requests
                 .requestMatchers(
-                        mvcMatcherBuilder.pattern("/"),                    mvcMatcherBuilder.pattern("/login"),                mvcMatcherBuilder.pattern("/sign-up")
-                        ,mvcMatcherBuilder.pattern("/check-email"),         mvcMatcherBuilder.pattern("/check-email-token"),    mvcMatcherBuilder.pattern("/email-login")
-                        ,mvcMatcherBuilder.pattern("/check-email-login"),   mvcMatcherBuilder.pattern("/login-link"),           mvcMatcherBuilder.pattern("/profile/*")
+                        mvcMatcherBuilder.pattern("/"),                    mvcMatcherBuilder.pattern("/login"),
+                        mvcMatcherBuilder.pattern("/sign-up") ,mvcMatcherBuilder.pattern("/check-email"),
+                        mvcMatcherBuilder.pattern("/check-email-token"),    mvcMatcherBuilder.pattern("/email-login"),
+                        mvcMatcherBuilder.pattern("/check-email-login"),   mvcMatcherBuilder.pattern("/login-link"),
+                        mvcMatcherBuilder.pattern("/profile/*")
                 ).permitAll()
                 .requestMatchers(mvcMatcherBuilder.pattern(HttpMethod.POST, "/profile/*")).permitAll()
                 .anyRequest().authenticated()

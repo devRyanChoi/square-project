@@ -49,7 +49,7 @@ public class Account {
     private boolean officeUpdatedByWeb;
 
 
-    public void generateEmailCheckTokken() {
+    public void generateEmailCheckToken() {
         this.emailCheckToken = UUID.randomUUID().toString();
     }
 
