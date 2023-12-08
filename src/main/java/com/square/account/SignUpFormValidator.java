@@ -14,8 +14,8 @@ public class SignUpFormValidator implements Validator {
     private String name;
 
     @Override
-    public boolean supports(Class<?> clazz) {
-        return false;
+    public boolean supports(Class<?> aClass) {
+        return aClass.isAssignableFrom(SignUpForm.class);
     }
 
     @Override
@@ -25,7 +25,7 @@ public class SignUpFormValidator implements Validator {
             errors.rejectValue("email","invalid.email", new Object[]{signUpForm.getEmail()}, "Invalid Email" );
              
         }
-        if(accountRepository.existsByNickName(signUpForm.getNickname())) {
+        if(accountRepository.existsByNickname(signUpForm.getNickname())) {
             errors.rejectValue("nickname","invalid.nickname", new Object[]{signUpForm.getNickname()}, "Invalid nickName" );
         }
     }
