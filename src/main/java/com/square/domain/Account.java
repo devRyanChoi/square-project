@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
 @Getter @Setter @EqualsAndHashCode(of = "id")
@@ -14,7 +15,7 @@ public class Account {
     private Long id;
 
     @Column(unique = true)
-    private String Email;
+    private String email;
 
     @Column(unique = true)
     private String nickname;
@@ -47,5 +48,9 @@ public class Account {
     private boolean officeUpdatedByEmail;
     private boolean officeUpdatedByWeb;
 
+
+    public void generateEmailCheckTokken() {
+        this.emailCheckToken = UUID.randomUUID().toString();
+    }
 
 }

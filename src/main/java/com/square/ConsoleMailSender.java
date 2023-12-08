@@ -1,13 +1,18 @@
-package com.square.account;
+package com.square;
 
 import jakarta.mail.internet.MimeMessage;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Profile;
 import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessagePreparator;
+import org.springframework.stereotype.Component;
 
 import java.io.InputStream;
-
+@Profile("local")
+@Component
+@Slf4j
 public class ConsoleMailSender implements JavaMailSender {
 
     @Override
@@ -42,7 +47,7 @@ public class ConsoleMailSender implements JavaMailSender {
 
     @Override
     public void send(SimpleMailMessage simpleMessage) throws MailException {
-
+        log.info(simpleMessage.getText());
     }
 
     @Override
